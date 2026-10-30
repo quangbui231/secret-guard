@@ -1,0 +1,10 @@
+
+# Chỉ thêm các giá trị đã được xác nhận là ngoại lệ.
+allowed_secrets:
+  - EXAMPLE_ONLY_SECRET
+  - TEST_FIXTURE_VALUE_123
+
+# Chỉ bỏ qua phát hiện tại đúng file và dòng được chỉ định.
+allowed_locations:
+  - filename: tests/fixtures/example.py
+    line: 10

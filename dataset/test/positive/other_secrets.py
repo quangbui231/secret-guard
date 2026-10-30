@@ -1,0 +1,11 @@
+# Các loại secret khác giả lập
+client_secret = "FAKE_CLIENT_SECRET_2026_ABC"
+app_secret = "FAKE_APP_SECRET_82KLMN47"
+encryption_key = "FAKE_ENCRYPTION_KEY_2026_XYZ"
+signing_key = "FAKE_SIGNING_KEY_73ABCD91"
+webhook_secret = "FAKE_WEBHOOK_SECRET_2026"
+secret_key = "FAKE_SECRET_KEY_82KLMN47"
+access_key = "FAKE_ACCESS_KEY_2026_XYZ"
+auth_secret = "FAKE_AUTH_SECRET_73ABCD91"
+credential = "FAKE_CREDENTIAL_2026_ABC"
+private_key = "FAKE_PRIVATE_KEY_VALUE_82XYZ"

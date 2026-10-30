@@ -1,0 +1,19 @@
+# Cấu hình ứng dụng bình thường
+application:
+  name: secret-guard-test
+  version: "1.0.0"
+  debug: false
+
+server:
+  host: localhost
+  port: 8080
+
+database:
+  host: localhost
+  port: 5432
+  name: test_database
+  username: test_user
+
+logging:
+  level: INFO
+  enabled: true

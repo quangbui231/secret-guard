@@ -1,0 +1,11 @@
+# API keys giả lập với nhiều định dạng khác nhau
+api_key = "FAKE_API_KEY_2026_A7B9C2D4"
+service_api_key = "DUMMY_SERVICE_KEY_82KLMN47"
+google_api_key = "FAKE_GOOGLE_KEY_A1B2C3D4"
+aws_access_key = "AKIAFAKE123456789012"
+stripe_api_key = "sk_test_FAKE_123456789ABC"
+github_token_key = "FAKE_GITHUB_KEY_72AB91CD"
+payment_api_key = "PAYMENT_FAKE_KEY_2026_XYZ"
+cloud_api_key = "CLOUD_FAKE_KEY_8F7D6C5B"
+client_api_key = "CLIENT_FAKE_KEY_1234ABCD"
+maps_api_key = "MAPS_FAKE_KEY_9876WXYZ"

@@ -1,0 +1,11 @@
+# Password giả lập
+password = "FakePassword_2026_A"
+db_password = "DatabaseFake!82KLM"
+admin_password = "AdminFake#2026"
+user_password = "UserFake_73ABCD"
+mysql_password = "MySQLFake!2026"
+redis_password = "RedisFake#82XYZ"
+smtp_password = "SMTPFake_2026_ABC"
+ftp_password = "FTPFake!91QWER"
+secret_password = "SecretFake#2026"
+service_password = "ServiceFake_7H2K9L"

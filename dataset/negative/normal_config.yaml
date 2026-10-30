@@ -1,0 +1,10 @@
+# Cấu hình ứng dụng thông thường
+application:
+  name: secret-guard-demo
+  environment: development
+  debug: true
+
+database:
+  host: localhost
+  port: 5432
+  username: app_user

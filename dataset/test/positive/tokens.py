@@ -1,0 +1,11 @@
+# Token giả lập
+access_token = "FAKE_ACCESS_TOKEN_82KLMN47"
+refresh_token = "FAKE_REFRESH_TOKEN_2026_XYZ"
+auth_token = "FAKE_AUTH_TOKEN_73ABCD91"
+jwt_token = "eyJhbGciOiJIUzI1NiJ9.FAKE_PAYLOAD.SIGNATURE"
+bearer_token = "FAKE_BEARER_TOKEN_2026_ABC"
+session_token = "FAKE_SESSION_TOKEN_92XYZ"
+oauth_token = "FAKE_OAUTH_TOKEN_2026_123"
+id_token = "FAKE_ID_TOKEN_73ABCD91"
+private_token = "FAKE_PRIVATE_TOKEN_2026_XYZ"
+user_access_token = "FAKE_USER_ACCESS_82KLMN"

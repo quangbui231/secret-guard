@@ -1,0 +1,11 @@
+# Placeholder, không phải credential thật
+api_key = "YOUR_API_KEY"
+password = "CHANGE_ME"
+secret = "REPLACE_WITH_SECRET"
+token = "YOUR_TOKEN_HERE"
+client_secret = "TODO"
+database_password = "CHANGEME"
+access_token = "${ACCESS_TOKEN}"
+api_key = "{{ API_KEY }}"
+password = "example"
+secret_key = "not_set"

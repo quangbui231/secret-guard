@@ -1,0 +1,47 @@
+﻿filename,line,expected_type,expected_value,expected_secret
+positive/api_keys.py,2,API Key,sk_test_7Fh92KxP4mN8vQ3rT6yW,1
+positive/api_keys.py,3,API Key,AIzaSyDUMMY7Fh92KxP4mN8vQ3,1
+positive/api_keys.py,4,API Key,AKIAIOSFODNN7EXAMPLE,1
+positive/database_credentials.py,2,Password,PgSQL_Prod!2026_Dummy,1
+positive/database_credentials.py,3,Password,M0ngoDB!Secure_Example,1
+positive/database_credentials.py,4,Password,RedisPass#2026_Test,1
+positive/database_credentials.py,7,Database Password,PgSQL_Prod!2026_Dummy,1
+positive/demo_secrets.py,5,API Key,DEMO_API_KEY_123456789,1
+positive/demo_secrets.py,6,Password,DemoPassword123,1
+positive/demo_secrets.py,7,Token,DEMO_ACCESS_TOKEN_987654321,1
+positive/demo_secrets.py,10,High Entropy,aB9xK2mP7qR4vT8nL5wZ,1
+positive/demo_secrets.py,13,No Secret,,0
+positive/mixed_secrets.py,2,API Key,sk_live_FAKE_92KxP4mN8vQ3rT6yW,1
+positive/mixed_secrets.py,3,Password,FakePassword!2026,1
+positive/mixed_secrets.py,4,Token,FAKE_ACCESS_TOKEN_7Fh92KxP4mN8,1
+positive/mixed_secrets.py,5,Client Secret,CLIENT_SECRET_FAKE_2026_ABCDEF,1
+positive/private_keys.py,2,Private Key,-----BEGIN RSA PRIVATE KEY-----,1
+positive/private_keys.py,3,No Secret,,0
+positive/private_keys.py,4,No Secret,,0
+positive/tokens.py,2,JWT,eyJhbGciOiJIUzI1NiJ9.DUMMY_PAYLOAD_2026.SIGNATURE_FAKE,1
+positive/tokens.py,3,Refresh Token,dGhpcy1pcy1hLWZha2UtcmVmcmVzaC10b2tlbi0yMDI2,1
+positive/tokens.py,4,Token,AUTH_7Fh92KxP4mN8vQ3rT6yW9z,1
+negative/environment_variables.py,2,No Secret,,0
+negative/environment_variables.py,3,No Secret,,0
+negative/environment_variables.py,4,No Secret,,0
+negative/normal_code.py,2,No Secret,,0
+negative/normal_code.py,3,No Secret,,0
+negative/normal_code.py,5,No Secret,,0
+negative/normal_code.py,6,No Secret,,0
+negative/normal_config.yaml,2,No Secret,,0
+negative/normal_config.yaml,3,No Secret,,0
+negative/normal_config.yaml,4,No Secret,,0
+negative/normal_config.yaml,5,No Secret,,0
+negative/normal_config.yaml,7,No Secret,,0
+negative/normal_config.yaml,8,No Secret,,0
+negative/normal_config.yaml,9,No Secret,,0
+negative/normal_config.yaml,10,No Secret,,0
+negative/normal_data.py,2,No Secret,,0
+negative/normal_data.py,3,No Secret,,0
+negative/normal_data.py,4,No Secret,,0
+negative/normal_data.py,5,No Secret,,0
+negative/normal_data.py,8,No Secret,,0
+negative/placeholders.py,2,No Secret,,0
+negative/placeholders.py,3,No Secret,,0
+negative/placeholders.py,4,No Secret,,0
+negative/placeholders.py,5,No Secret,,0

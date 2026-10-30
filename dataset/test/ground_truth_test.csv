@@ -1,0 +1,119 @@
+﻿filename,line,expected_type,expected_secret
+positive/api_keys.py,2,Secret,1
+positive/api_keys.py,3,Secret,1
+positive/api_keys.py,4,Secret,1
+positive/api_keys.py,5,Secret,1
+positive/api_keys.py,6,Secret,1
+positive/api_keys.py,7,Secret,1
+positive/api_keys.py,8,Secret,1
+positive/api_keys.py,9,Secret,1
+positive/api_keys.py,10,Secret,1
+positive/api_keys.py,11,Secret,1
+positive/database_credentials.py,2,Secret,1
+positive/database_credentials.py,3,Secret,1
+positive/database_credentials.py,4,Secret,1
+positive/database_credentials.py,5,Secret,1
+positive/database_credentials.py,6,Secret,1
+positive/database_credentials.py,7,Secret,1
+positive/database_credentials.py,8,Secret,1
+positive/database_credentials.py,9,Secret,1
+positive/database_credentials.py,10,Secret,1
+positive/database_credentials.py,11,Secret,1
+positive/other_secrets.py,2,Secret,1
+positive/other_secrets.py,3,Secret,1
+positive/other_secrets.py,4,Secret,1
+positive/other_secrets.py,5,Secret,1
+positive/other_secrets.py,6,Secret,1
+positive/other_secrets.py,7,Secret,1
+positive/other_secrets.py,8,Secret,1
+positive/other_secrets.py,9,Secret,1
+positive/other_secrets.py,10,Secret,1
+positive/other_secrets.py,11,Secret,1
+positive/passwords.py,2,Secret,1
+positive/passwords.py,3,Secret,1
+positive/passwords.py,4,Secret,1
+positive/passwords.py,5,Secret,1
+positive/passwords.py,6,Secret,1
+positive/passwords.py,7,Secret,1
+positive/passwords.py,8,Secret,1
+positive/passwords.py,9,Secret,1
+positive/passwords.py,10,Secret,1
+positive/passwords.py,11,Secret,1
+positive/private_keys.py,2,Private Key,1
+positive/private_keys.py,3,No Secret,0
+positive/private_keys.py,4,No Secret,0
+positive/private_keys.py,6,Private Key,1
+positive/private_keys.py,7,No Secret,0
+positive/private_keys.py,8,No Secret,0
+positive/private_keys.py,10,Private Key,1
+positive/private_keys.py,11,No Secret,0
+positive/private_keys.py,12,No Secret,0
+positive/tokens.py,2,Secret,1
+positive/tokens.py,3,Secret,1
+positive/tokens.py,4,Secret,1
+positive/tokens.py,5,Secret,1
+positive/tokens.py,6,Secret,1
+positive/tokens.py,7,Secret,1
+positive/tokens.py,8,Secret,1
+positive/tokens.py,9,Secret,1
+positive/tokens.py,10,Secret,1
+positive/tokens.py,11,Secret,1
+negative/environment_variables.py,2,No Secret,0
+negative/environment_variables.py,5,No Secret,0
+negative/environment_variables.py,6,No Secret,0
+negative/environment_variables.py,7,No Secret,0
+negative/environment_variables.py,8,No Secret,0
+negative/environment_variables.py,9,No Secret,0
+negative/environment_variables.py,10,No Secret,0
+negative/environment_variables.py,11,No Secret,0
+negative/environment_variables.py,12,No Secret,0
+negative/environment_variables.py,13,No Secret,0
+negative/environment_variables.py,14,No Secret,0
+negative/normal_code.py,2,No Secret,0
+negative/normal_code.py,3,No Secret,0
+negative/normal_code.py,5,No Secret,0
+negative/normal_code.py,6,No Secret,0
+negative/normal_code.py,8,No Secret,0
+negative/normal_code.py,9,No Secret,0
+negative/normal_code.py,11,No Secret,0
+negative/normal_code.py,12,No Secret,0
+negative/normal_code.py,13,No Secret,0
+negative/normal_code.py,15,No Secret,0
+negative/normal_code.py,16,No Secret,0
+negative/normal_code.py,17,No Secret,0
+negative/normal_code.py,18,No Secret,0
+negative/normal_config.yaml,2,No Secret,0
+negative/normal_config.yaml,3,No Secret,0
+negative/normal_config.yaml,4,No Secret,0
+negative/normal_config.yaml,5,No Secret,0
+negative/normal_config.yaml,7,No Secret,0
+negative/normal_config.yaml,8,No Secret,0
+negative/normal_config.yaml,9,No Secret,0
+negative/normal_config.yaml,11,No Secret,0
+negative/normal_config.yaml,12,No Secret,0
+negative/normal_config.yaml,13,No Secret,0
+negative/normal_config.yaml,14,No Secret,0
+negative/normal_config.yaml,15,No Secret,0
+negative/normal_config.yaml,17,No Secret,0
+negative/normal_config.yaml,18,No Secret,0
+negative/normal_config.yaml,19,No Secret,0
+negative/placeholders.py,2,No Secret,0
+negative/placeholders.py,3,No Secret,0
+negative/placeholders.py,4,No Secret,0
+negative/placeholders.py,5,No Secret,0
+negative/placeholders.py,6,No Secret,0
+negative/placeholders.py,7,No Secret,0
+negative/placeholders.py,8,No Secret,0
+negative/placeholders.py,9,No Secret,0
+negative/placeholders.py,10,No Secret,0
+negative/placeholders.py,11,No Secret,0
+negative/random_strings.py,2,No Secret,0
+negative/random_strings.py,3,No Secret,0
+negative/random_strings.py,4,No Secret,0
+negative/random_strings.py,5,No Secret,0
+negative/random_strings.py,6,No Secret,0
+negative/random_strings.py,7,No Secret,0
+negative/random_strings.py,8,No Secret,0
+negative/random_strings.py,9,No Secret,0
+negative/random_strings.py,10,No Secret,0
+negative/random_strings.py,11,No Secret,0

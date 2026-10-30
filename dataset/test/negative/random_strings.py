@@ -1,0 +1,11 @@
+# Chuỗi bình thường, không phải secret
+product_code = "PRODUCT_2026_000123"
+order_reference = "ORDER_REFERENCE_123456"
+customer_reference = "CUSTOMER_00009876"
+description = "This is a normal application description"
+log_identifier = "LOG_EVENT_2026_000001"
+file_identifier = "REPORT_FILE_2026_ABCDEF"
+message = "The application started successfully"
+region_code = "ASIA_PACIFIC_REGION"
+version_identifier = "VERSION_2026_RELEASE_01"
+documentation_id = "DOC_REFERENCE_123456789"

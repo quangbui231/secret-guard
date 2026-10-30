@@ -1,0 +1,11 @@
+# Database credentials giả lập
+database_password = "FakeDBPassword_2026"
+postgres_password = "PostgresFake#82"
+mysql_password = "MySQLFake!73AB"
+mongodb_password = "MongoFake_2026_XYZ"
+redis_password = "RedisFake#2026"
+database_url = "postgresql://fake_user:FakePass2026@localhost:5432/testdb"
+mysql_url = "mysql://fake_user:FakePass2026@localhost:3306/testdb"
+mongodb_url = "mongodb://fake_user:FakePass2026@localhost:27017/testdb"
+redis_url = "redis://fake_user:FakePass2026@localhost:6379/0"
+connection_password = "ConnectionFake#2026"
