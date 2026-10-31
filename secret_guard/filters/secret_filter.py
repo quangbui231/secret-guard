@@ -137,7 +137,7 @@ class SecretFilter:
             return True
 
         # Loại các biểu thức lấy giá trị từ biến môi trường/config.
-        if self.CODE_REFERENCE_PATTERN.search(value):
+        if not finding.get("literal_value") and self.CODE_REFERENCE_PATTERN.search(value):
             return True
 
         # Loại theo quy tắc tùy chỉnh.
@@ -154,6 +154,7 @@ class SecretFilter:
             finding.get("start"),
             finding.get("end"),
             finding.get("type"),
+            finding.get("detector"),
             finding.get("secret"),
         )
 

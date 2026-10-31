@@ -15,10 +15,12 @@ def main():
         help="Đường dẫn file hoặc thư mục cần quét."
     )
 
+    parser.add_argument("--no-python-context", action="store_true",
+                        help="Disable Python AST context for baseline comparison.")
     args = parser.parse_args()
 
     try:
-        guard = SecretGuard()
+        guard = SecretGuard(enable_python_context=not args.no_python_context)
         exit_code = guard.run(args.target)
         sys.exit(exit_code)
 

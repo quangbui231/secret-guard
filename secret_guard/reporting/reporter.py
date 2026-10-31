@@ -35,6 +35,8 @@ class Reporter:
             lines.append(
                 f"Detected by: {', '.join(detected_by)}"
             )
+        if finding.get("context_reason"):
+            lines.append(f"Context: {finding['context_reason']}")
 
         lines.extend([
             f"Risk score: {finding.get('risk_score', 'N/A')}",

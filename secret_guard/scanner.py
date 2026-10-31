@@ -4,6 +4,7 @@ from pathlib import Path
 from secret_guard.detectors.regex_detector import RegexDetector
 from secret_guard.detectors.entropy_detector import EntropyDetector
 from secret_guard.detectors.keyword_detector import KeywordDetector
+from secret_guard.detectors.python_context import PythonContextAnalyzer
 
 
 class SecretScanner:
@@ -14,7 +15,9 @@ class SecretScanner:
     có khả năng là thông tin bí mật trong văn bản hoặc file.
     """
 
-    def __init__(self):
+    def __init__(self, enable_python_context=True):
+        self.enable_python_context = enable_python_context
+        self.python_context = PythonContextAnalyzer()
         self.detectors = [
             RegexDetector(),
             EntropyDetector(),
@@ -43,6 +46,12 @@ class SecretScanner:
                 result["line"] = text.count("\n", 0, start) + 1
 
                 findings.append(result)
+
+        if self.enable_python_context and Path(filename).suffix.lower() == ".py":
+            findings = self.python_context.refine(text, findings)
+            for finding in findings:
+                finding["filename"] = filename
+                finding["line"] = text.count("\n", 0, finding.get("start", 0)) + 1
 
         # Sắp xếp kết quả theo vị trí xuất hiện trong văn bản.
         findings.sort(
