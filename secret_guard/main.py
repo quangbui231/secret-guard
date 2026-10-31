@@ -56,10 +56,10 @@ class SecretGuard:
         "High Entropy": "Entropy",
     }
 
-    def __init__(self):
+    def __init__(self, enable_python_context=True):
         self.config = Config()
 
-        self.scanner = SecretScanner()
+        self.scanner = SecretScanner(enable_python_context=enable_python_context)
 
         self.secret_filter = SecretFilter(
             min_length=self.config.min_secret_length
@@ -142,7 +142,7 @@ class SecretGuard:
 
             original_type = finding.get("type", "")
 
-            detector_name = self.DETECTOR_NAMES.get(
+            detector_name = finding.get("detector") or self.DETECTOR_NAMES.get(
                 original_type,
                 "Unknown",
             )
@@ -172,6 +172,8 @@ class SecretGuard:
 
             if "threshold" in finding:
                 merged[key]["threshold"] = finding["threshold"]
+            if "context_reason" in finding:
+                merged[key]["context_reason"] = finding["context_reason"]
 
         results = list(merged.values())
 
@@ -274,10 +276,12 @@ def main():
         help="Đường dẫn file hoặc thư mục cần quét.",
     )
 
+    parser.add_argument("--no-python-context", action="store_true",
+                        help="Disable Python AST context for baseline comparison.")
     args = parser.parse_args()
 
     try:
-        guard = SecretGuard()
+        guard = SecretGuard(enable_python_context=not args.no_python_context)
         exit_code = guard.run(args.target)
         sys.exit(exit_code)
 
