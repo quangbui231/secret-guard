@@ -27,6 +27,12 @@ class PolicyEngine:
             "action": "BLOCK",
             "reason": "Phát hiện giá trị có khả năng là mật khẩu.",
         },
+        "password hash": {
+            "severity": "HIGH",
+            "score": 80,
+            "action": "BLOCK",
+            "reason": "Phát hiện mã băm mật khẩu; có thể bị bẻ khóa ngoại tuyến.",
+        },
         "token": {
             "severity": "HIGH",
             "score": 80,

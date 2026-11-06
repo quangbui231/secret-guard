@@ -11,19 +11,20 @@ class RegexDetector:
     def __init__(self):
         self.patterns = {
             "API Key": re.compile(
-                r"""(?i)\bapi[_-]?key\b\s*[:=]\s*["']([^"'\s]{8,})["']"""
+                r"""(?i)\bapi[_-]?key\b[ \t]*[:=][ \t]*["']([^"'\s]{8,})["']"""
             ),
 
             "Password": re.compile(
-                r"""(?i)(?:\bpassword\b\s*[:=]\s*["']?([^"'\s,;]+)|(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|redis)://[^:/@\s]+:([^"'@\s/]+))"""
+                r"""(?i)(?:\bpassword\b[ \t]*[:=][ \t]*["']?([^"'\s,;]+)|(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|redis)://[^:/@\s]+:([^"'@\s/]+))"""
             ),
 
             "Token": re.compile(
-                r"""(?i)\b(?:user[_-])?(?:access[_-]?token|auth[_-]?token|refresh[_-]?token|jwt[_-]?token|bearer[_-]?token|session[_-]?token|oauth[_-]?token|id[_-]?token|private[_-]?token|token)\b\s*[:=]\s*["']([^"'\s]{8,})["']"""
+                r"""(?i)\b(?:user[_-])?(?:access[_-]?token|auth[_-]?token|refresh[_-]?token|jwt[_-]?token|bearer[_-]?token|session[_-]?token|oauth[_-]?token|id[_-]?token|private[_-]?token|token)\b[ \t]*[:=][ \t]*["']([^"'\s]{8,})["']"""
             ),
 
             "Private Key": re.compile(
-                r"""-----BEGIN (?:RSA |DSA |EC |OPENSSH )?PRIVATE KEY-----"""
+                r"""-----BEGIN (?:RSA |DSA |EC |OPENSSH |ENCRYPTED |PGP )?PRIVATE KEY(?: BLOCK)?-----"""
+                r"""|PuTTY-User-Key-File-\d+:[^\r\n]*"""
             ),
         }
 

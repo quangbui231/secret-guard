@@ -34,6 +34,20 @@ class SecretFilter:
         "not_set",
         "xxxxxxxx",
         "xxxxxxxxxx",
+        # Giá trị kiểu boolean/quyền trong file cấu hình (YAML, CI).
+        "true",
+        "false",
+        "yes",
+        "no",
+        "on",
+        "off",
+        "nil",
+        "read",
+        "write",
+        "enabled",
+        "disabled",
+        "required",
+        "optional",
     }
 
     VARIABLE_REFERENCE_PATTERNS = (
