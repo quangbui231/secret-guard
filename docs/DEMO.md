@@ -1,4 +1,4 @@
-# Hướng dẫn sử dụng và demo cải tiến AST
+# Hướng dẫn sử dụng và demo Secret Guard
 
 Chạy các lệnh từ thư mục gốc repository. Các file trong `examples` chứa dữ liệu
 giả lập để quét, không chạy trực tiếp bằng Python.
@@ -8,7 +8,7 @@ giả lập để quét, không chạy trực tiếp bằng Python.
 Nếu chưa clone repository:
 
 ```powershell
-git clone --branch feat/python-ast-context https://github.com/quangbui231/secret-guard.git
+git clone --branch feat/real-world-scanning https://github.com/quangbui231/secret-guard.git
 cd secret-guard
 ```
 
@@ -16,7 +16,7 @@ Nếu đã có repository, kiểm tra và lưu thay đổi đang làm trước k
 
 ```powershell
 git fetch origin
-git switch feat/python-ast-context
+git switch feat/real-world-scanning
 ```
 
 Tạo môi trường Python (khuyến nghị 3.12, phiên bản đã kiểm thử):
@@ -28,7 +28,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Kết quả đã kiểm tra: **106 passed**. Dùng đường dẫn Python trực tiếp nên không cần
+Kết quả đã kiểm tra: **177 passed** (106 test cũ + 71 test cho phần quét file thực tế). Dùng đường dẫn Python trực tiếp nên không cần
 activate môi trường hoặc thay đổi ExecutionPolicy của PowerShell.
 Trên Linux/macOS, thay `.\.venv\Scripts\python.exe` bằng `.venv/bin/python`.
 
@@ -109,7 +109,8 @@ dòng của tập cũ. Không dùng hai tỷ lệ đó để so sánh trực ti�
 
 Tập ngữ cảnh là tập phát triển viết tay, chưa độc lập với việc triển khai. Còn
 bỏ sót giá trị qua biến trung gian và fallback bằng toán tử `or`; ca `or` còn
-tạo một đoạn trích sai. Chưa benchmark với Gitleaks/detect-secrets.
+tạo một đoạn trích sai. So sánh với Gitleaks/detect-secrets trên dữ liệu độc lập:
+xem mục 9.
 
 ## 8 Lưu ý khi trình bày
 
@@ -121,3 +122,47 @@ tạo một đoạn trích sai. Chưa benchmark với Gitleaks/detect-secrets.
 - AST không thực thi file và không giải quyết luồng dữ liệu qua biến/hàm/file.
 - Kết luận phù hợp: cải tiến chất lượng phát hiện so với bản Secret Guard gốc
   trong các tình huống đã đo, không phải phát minh thuật toán AST mới.
+
+## 9 Demo quét file thực tế nhiều định dạng
+
+Tạo bộ file mẫu (21 secret giả lập trong 20 loại file: `.env`, `.netrc`,
+JSON, YAML, XML, PHP, JS, Word, Excel, PDF, notebook, zip, tar.gz, gz, UTF-16,
+cp1252, `.htpasswd`...) rồi quét cả thư mục:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/generate_dataset.py --real-world
+.\.venv\Scripts\python.exe -m secret_guard.main dataset/real_world --show-skipped
+```
+
+Nhớ giữ cờ `--real-world`: chạy `generate_dataset.py` không có cờ sẽ tạo lại
+bộ `dataset/positive`, `dataset/negative` của bản gốc và ghi đè file đang có
+(khôi phục bằng `git checkout -- dataset`). Thư mục `dataset/real_world` đã
+nằm trong `.gitignore`.
+
+Điểm cần chỉ ra khi trình bày:
+
+- File trong file nén hiện dạng `backup/config_backup.zip!config/.env`.
+- Word/Excel/PDF/notebook được đọc chữ; file UTF-16 và cp1252 đọc đúng.
+- `assets/logo.png`, `data/model.bin` bị bỏ qua có lý do; `package-lock.json`
+  bị loại vì là lock file (`Excluded by rules: 1`).
+- `src/clean.py` (`os.getenv`) và `const password = getPassword()` trong
+  `web/app.js` không bị báo.
+- Kết quả: 21 BLOCK, 0 REVIEW. Mỗi phát hiện từ định dạng mới có dòng `Context`.
+
+Quét một dự án thật bất kỳ trên máy (ví dụ thư mục code của chính bạn):
+
+```powershell
+.\.venv\Scripts\python.exe -m secret_guard.main C:\duong\dan\du_an --only-block
+.\.venv\Scripts\python.exe -m secret_guard.main C:\duong\dan\du_an --format json --output report.json
+```
+
+Đánh giá trên bộ dữ liệu độc lập leaky-repo (cần mạng để clone):
+
+```powershell
+git clone https://github.com/Plazmaz/leaky-repo ..\leaky-repo
+.\.venv\Scripts\python.exe -m evaluation.performance ..\leaky-repo
+```
+
+Kết quả đã chạy ngày 06/11/2026: chỉ tính BLOCK, Secret Guard bắt 78/175 secret
+ở 37/44 file, 0 báo dư (bản trước nâng cấp: 26/175, 16/44 file). Cùng cách chấm,
+detect-secrets 1.5.0 đạt 42/175, Gitleaks 8.21.2 đạt 25/175.

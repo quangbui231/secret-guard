@@ -120,7 +120,12 @@ class PythonContextAnalyzer:
                 for target in node.targets:
                     value(node.value, self._name(target), "Hardcoded sensitive assignment")
             elif isinstance(node, (ast.AnnAssign, ast.NamedExpr)):
+                if isinstance(node, ast.AnnAssign) and sensitive(self._name(node.target)):
+                    # `token: contextvars.Token[...]` là kiểu dữ liệu, không phải giá trị.
+                    expression_spans.append(span(node.annotation))
                 value(node.value, self._name(node.target), "Hardcoded sensitive assignment")
+            elif isinstance(node, ast.arg) and node.annotation is not None and sensitive(node.arg):
+                expression_spans.append(span(node.annotation))
             elif isinstance(node, ast.Dict):
                 for key, item in zip(node.keys, node.values):
                     name = key.value if isinstance(key, ast.Constant) else ""

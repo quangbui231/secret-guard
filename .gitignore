@@ -8,3 +8,6 @@ venv/
 !.env.example
 .idea/
 .vscode/
+dataset/real_world/
+results/
+report.json
