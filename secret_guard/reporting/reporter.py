@@ -35,6 +35,8 @@ class Reporter:
             lines.append(
                 f"Detected by: {', '.join(detected_by)}"
             )
+        if finding.get("context_reason"):
+            lines.append(f"Context: {finding['context_reason']}")
 
         lines.extend([
             f"Risk score: {finding.get('risk_score', 'N/A')}",
@@ -43,6 +45,26 @@ class Reporter:
         ])
 
         return lines
+
+    def to_dict(self, finding):
+        """
+        Chuyển một phát hiện thành dict để xuất JSON.
+
+        Chỉ chứa giá trị đã che, không bao giờ chứa secret gốc.
+        """
+        return {
+            "type": finding.get("type", "Unknown"),
+            "file": finding.get("filename", "Unknown"),
+            "line": finding.get("line"),
+            "secret_masked": self.masker.mask(finding.get("secret", "")),
+            "secret_length": len(finding.get("secret", "") or ""),
+            "detected_by": finding.get("detected_by", []),
+            "context": finding.get("context_reason"),
+            "severity": finding.get("severity", "UNKNOWN"),
+            "risk_score": finding.get("risk_score"),
+            "action": finding.get("action", "REVIEW"),
+            "reason": finding.get("policy_reason"),
+        }
 
     def generate_report(self, findings):
         if not isinstance(findings, list):

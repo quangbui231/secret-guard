@@ -34,6 +34,20 @@ class SecretFilter:
         "not_set",
         "xxxxxxxx",
         "xxxxxxxxxx",
+        # Giá trị kiểu boolean/quyền trong file cấu hình (YAML, CI).
+        "true",
+        "false",
+        "yes",
+        "no",
+        "on",
+        "off",
+        "nil",
+        "read",
+        "write",
+        "enabled",
+        "disabled",
+        "required",
+        "optional",
     }
 
     VARIABLE_REFERENCE_PATTERNS = (
@@ -137,7 +151,7 @@ class SecretFilter:
             return True
 
         # Loại các biểu thức lấy giá trị từ biến môi trường/config.
-        if self.CODE_REFERENCE_PATTERN.search(value):
+        if not finding.get("literal_value") and self.CODE_REFERENCE_PATTERN.search(value):
             return True
 
         # Loại theo quy tắc tùy chỉnh.
@@ -154,6 +168,7 @@ class SecretFilter:
             finding.get("start"),
             finding.get("end"),
             finding.get("type"),
+            finding.get("detector"),
             finding.get("secret"),
         )
 
